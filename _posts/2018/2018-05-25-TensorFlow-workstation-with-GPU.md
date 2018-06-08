@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Build up the hardware envirnment for TensorFlow Workstation
-category: envirnment
-tags: [TensorFlow,GPU, envirenment]
+category: envirenment
+tags: [TensorFlow, GPU, envirenment]
 ---
 ### 1 配置
 主板：ASUS X99 -E WS，特点：单CPU,
@@ -56,7 +56,8 @@ grub rescue>ls
 grub rescue>set root = (hd0,msdos5)
 grub rescue>set prefix = (hd0,msdos5)/boot/grub
 grub rescue>insmod normal
-grub rescue>normal```
+grub rescue>normal
+```
 
 （It turns out to be useless）
 
@@ -174,5 +175,10 @@ ln -s libcudart.so.9.2 libcudart.so.9.0```
 新建libcudart.so.9.0指向9.2。
 以及sublime列编辑技能，command shift L 后，使用鼠标中键即可列编辑。
 ![gpu success](sucess_gpu.png)
+#### How to get real time gpu monitoring:
+```
+sudo watch nvidia-smi```
+Here is the [nvidia-smi documentation](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf)
+
 ##### Reference
 1. [深度学习（TensorFlow）环境搭建：（三）Ubuntu16.04+CUDA8.0+cuDNN7+Anaconda4.4+Python3.6+TensorFlow1.3](https://www.cnblogs.com/xuliangxing/p/7575586.html)
