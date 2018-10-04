@@ -12,7 +12,7 @@ tags: [jupyter Notebook, jupyter Lab, ssh, server]
 
 [Setting up a Jupyter Lab remote server](https://agent-jay.github.io/2018/03/jupyterserver/) is the tutorial I referenced from.
 
-Firt of all, start on the server:
+1. Firt of all, start on the server:
 
 ```
 linyange@nellodee:~$ jupyter notebook --generate-config
@@ -22,12 +22,15 @@ Enter password: ****
 Verify password: ****
 [NotebookPasswordApp] Wrote hashed password to /home/you/.jupyter/jupyter_notebook_config.json
 ```
+
 ```
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem```
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem
+```
+
 You will need to answer a couple of basic question which is needed to generate a hash file.
 The file will be named after *mycert.pem* which you will need later. You will find it in the current path.
 
-Open the ```/home/you/.jupyter/jupyter_notebook_config.py``` file and then change thins below:(remember to remove all the sharp sign from the biginning of these line.)
+Open the `/home/you/.jupyter/jupyter_notebook_config.py` file and then change thins below:(remember to remove all the sharp sign from the biginning of these line.)
 
 ```
   # Set options for certfile, ip, password, and toggle off
@@ -43,8 +46,9 @@ Open the ```/home/you/.jupyter/jupyter_notebook_config.py``` file and then chang
   c.NotebookApp.port = 9999
 ```
 
-Then just run ```jupyter notebook``` on the server.
+Then just run `jupyter notebook` on the server.
 Then type the line below on your local laptop:
+
 ```
 ssh -N -f -L 8888:localhost:9999 user@domain.com
 ```
